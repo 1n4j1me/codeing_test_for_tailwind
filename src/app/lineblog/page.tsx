@@ -90,27 +90,31 @@ export default function Blog() {
             <div className="flex flex-col mr-24">
                 {articleList.map((article, idx) => {
                     return (
-                    <div className="flex flex-col border-b border-gray-300 w-[800px] mb-10 text-black" key={`article-${idx}`}>
-                        <h1 className="text-2xl font-bold mb-4">{article.title}</h1>
-                        <div className="flex">
-                            <h1 className="bg-green-500 min-w-[48px] min-h-[48px] mr-4"></h1>
-                                <div className="flex flex-col">
-                                    <div className="flex">
-                                        <h1 className="mr-2">{article.author}</h1>
-                                        <h1 className="text-gray-400">{article.date}</h1>
+                    <div key={`article-${idx}`}>
+                        <div className="flex flex-col border-b border-gray-300 w-[800px] mb-10 text-black">
+                            <h1 className="text-2xl font-bold mb-4">{article.title}</h1>
+                            <div className="flex">
+                                <h1 className="bg-green-500 min-w-[48px] min-h-[48px] mr-4"></h1>
+                                    <div className="flex flex-col">
+                                        <div className="flex">
+                                            <h1 className="mr-2">{article.author}</h1>
+                                            <h1 className="text-gray-400">{article.date}</h1>
+                                        </div>
+                                        <h1 className="text-gray-400 text-sm">{article.authortag}</h1>
                                     </div>
-                                    <h1 className="text-gray-400 text-sm">{article.authortag}</h1>
-                                </div>
-                        </div>
-                        <h1 className="mt-6 mb-6">{article.headline}</h1>
-                        <div className="flex mb-6">
-                            {article.tag.map((tag) => {
-                                return(
-                                    <h1 className="border border-gray-300 text-gray-600 text-xs mr-1">{tag}</h1>
-                                )
-                            })}
-                        </div>
-                    </div> 
+                            </div>
+                            <h1 className="mt-6 mb-6">{article.headline}</h1>
+                            <div className="flex mb-6">
+                                {article.tag.map((tag,idx) => {
+                                    return(
+                                        <div key={`tag-${idx}`}>
+                                            <h1 className="border border-gray-300 text-gray-600 text-xs mr-1">{tag}</h1>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div> 
+                    </div>
                     )
                 })}
             </div>

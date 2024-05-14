@@ -52,26 +52,30 @@ export default function Blog() {
       <div className="flex flex-wrap w-full max-w-[1165px]">
       {articleList.map((article, idx) => {
         return (
-          <div className="flex flex-col border border-zinc-400 w-full max-w-[781px] ml-96 mb-4 pt-4 pl-6 pr-6 pb-4" key={`article-${idx}`}>
-            <h1 className='text-black'>{article.publishDate}</h1>
-            <div className="flex">
-              {/* 画像 */}
-              <div className="bg-red-600 bg-left w-[196px] h-[110px] min-w-[196px] min-h-[110px]"> </div>
-              {/* テキスト */}
-              <div className='w-full ml-4 mb-4'>
-                <h1 className='text-black mr-8'>{article.title}</h1>
-                <div className="flex justify-between pt-4">
-                  <div className="flex flex-col">
-                    <div className="flex">
-                      {article.tags.map((tag, idx) => {
-                        return (
-                          <h1 className='text-gray-500 text-xs mt-4 mr-4'>{tag}</h1>
-                        )
-                      })}
+          <div key={`article-${idx}`}>
+            <div className="flex flex-col border border-zinc-400 w-full max-w-[781px] ml-96 mb-4 pt-4 pl-6 pr-6 pb-4">
+              <h1 className='text-black'>{article.publishDate}</h1>
+              <div className="flex">
+                {/* 画像 */}
+                <div className="bg-red-600 bg-left w-[196px] h-[110px] min-w-[196px] min-h-[110px]"> </div>
+                {/* テキスト */}
+                <div className='w-full ml-4 mb-4'>
+                  <h1 className='text-black mr-8'>{article.title}</h1>
+                  <div className="flex justify-between pt-4">
+                    <div className="flex flex-col">
+                      <div className="flex">
+                        {article.tags.map((tag, idx) => {
+                          return (
+                          <div key={`tags-${idx}`}>
+                            <h1 className='text-gray-500 text-xs mt-4 mr-4'>{tag}</h1>
+                          </div>
+                          )
+                        })}
+                      </div>
+                      <h1 className='text-black text-xs mt-1 mr-8'>Author: <span className='text-gray-500'>{article.author}</span></h1>
                     </div>
-                    <h1 className='text-black text-xs mt-1 mr-8'>Author: <span className='text-gray-500'>{article.author}</span></h1>
+                      <h1 className='text-black'>→</h1>
                   </div>
-                    <h1 className='text-black'>→</h1>
                 </div>
               </div>
             </div>
